@@ -9,8 +9,7 @@ ENV PATH="/usr/local/go/bin:${PATH}"
 RUN apk add openjdk17-jdk maven
 
 RUN echo $(dirname $(dirname $(readlink -f $(which java))))
-RUN echo -n $(dirname $(dirname $(readlink -f $(which java)))) > /java_home
-ENV JAVA_HOME="/usr/lib/jvm/default-jvm"
+ENV JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
 
 COPY entrypoint.sh /entrypoint.sh
 
