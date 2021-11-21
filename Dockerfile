@@ -8,6 +8,8 @@ ENV PATH="/usr/local/go/bin:${PATH}"
 
 RUN apk add openjdk17-jdk maven
 
+ENV JAVA_HOME="/usr/lib/jvm/default-jvm"
+
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
