@@ -62,6 +62,7 @@ function installPipRequirements(){
 
 function runCdk(){
 	echo "Run cdk ${INPUT_CDK_SUBCOMMAND} ${*} \"${INPUT_CDK_STACK}\""
+	export JAVA_HOME="$(dirname $(dirname $(readlink -f $(which java))))"
 	set -o pipefail
 	cdk ${INPUT_CDK_SUBCOMMAND} ${*} "${INPUT_CDK_STACK}" 2>&1 | tee output.log
 	exitCode=${?}
